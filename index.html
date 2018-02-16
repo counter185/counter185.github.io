@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Youtube Thumbnail Downloader HTML v1.1</title>
+		
+		<style>
+		
+			#imgs {
+				display: none;
+			}
+			
+			body {
+				background-color: black;
+				color: white;
+			}
+			
+			#darkthemebtn {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+	<div id=lightbtns>
+		<button id="darkthemebtn" onclick="darkTheme()">Dark Theme</button>
+		<button id="lightthemebtn" onclick="lightTheme()">Light Theme</button>
+	</div>
+		<p>ID or link: <input type="text" id="ID" value="" onKeyUp="changeImage()"></p>
+		<p><button onclick="changeImage()"> Download </button></p>
+
+		<script language="javascript">
+			function changeImage() {
+				var x = document.getElementById("imgs");
+				x.style.display = "block";
+			
+				var parseString = document.getElementById('ID').value;
+					
+				if (parseString.substring(0, 32) == "https://www.youtube.com/watch?v=") {
+					document.getElementById('ID').value = parseString.substring (32, 32 + 11);
+				}
+					
+				if (parseString.substring(0, 17) == "https://youtu.be/") { 
+					document.getElementById('ID').value = parseString.substring (17, 17 + 11);
+				}
+					
+				document.getElementById("720").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/maxresdefault.jpg";
+				document.getElementById("480").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/sddefault.jpg";
+				document.getElementById("360").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/hqdefault.jpg";
+				document.getElementById("180").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/mqdefault.jpg";
+				document.getElementById("90").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/default.jpg";
+			}
+			
+			function darkTheme() {
+				document.body.style.backgroundColor = "black";
+				document.body.style.color = "white";
+				document.getElementById("lightthemebtn").style.display = "block";
+				document.getElementById("darkthemebtn").style.display = "none";
+				
+			}
+			
+			function lightTheme() {
+				document.body.style.backgroundColor = "white";
+				document.body.style.color = "black";
+				document.getElementById("darkthemebtn").style.display = "block";
+				document.getElementById("lightthemebtn").style.display = "none";
+			}
+		</script>
+
+		<div id=imgs>
+			<p>1280x720</p>
+			<p><img id="720" src="" ></p>
+
+			<p>640x480</p>
+			<p><img id="480" src="" ></p>
+
+			<p>480x360</p>
+			<p><img id="360" src="" ></p>
+
+			<p>320x180</p>
+			<p><img id="180" src="" ></p>
+
+			<p>120x90</p>
+			<p><img id="90" src="" ></p>
+		</div>
+
+	</body>
+</html>
+    
