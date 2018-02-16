@@ -12,21 +12,66 @@
 			body {
 				background-color: black;
 				color: white;
+				font-family: Arial;
 			}
 			
-			#darkthemebtn {
+			p {
+				margin-bottom: 2px;
+				margin-top: 2px;
+				font-size: 70px;
+			}
+			
+			input {
+				width: 50%;
+				margin-top: 2px;
+				margin-bottom: 2px;
+				height: 60px;
+				border: 2px solid white;
+				font-size: 50px;
+				background-color: black;
+				color: white;
+			}
+			
+			.themeBtn {
+				font-weight: bold;
+			}
+			
+			.button {
+				font-size: 55px;
+				transition-duration: 0.2s;
+			}
+			
+			.buttonDark {
 				display: none;
+				border: 2px solid black;
+				background-color: white;
+				color: black;
+			}
+			.buttonDark:hover {
+				background-color: black;
+				color: white;
+			}
+			
+			.buttonLight {
+				border: 2px solid white;
+				background-color: black;
+				color: white;
+			}
+			.buttonLight:hover {
+				color: black;
+				background-color: white;
 			}
 		</style>
 	</head>
 
 	<body>
 	<div id=lightbtns>
-		<button id="darkthemebtn" onclick="darkTheme()">Dark Theme</button>
-		<button id="lightthemebtn" onclick="lightTheme()">Light Theme</button>
+		<button id="darkthemebtn" class="buttonDark button themeBtn" onclick="darkTheme()">Dark Theme</button>
+		<button id="lightthemebtn" class="buttonLight button themeBtn" onclick="lightTheme()">Light Theme</button>
 	</div>
 		<p>ID or link: <input type="text" id="ID" value="" onKeyUp="changeImage()"></p>
-		<p><button onclick="changeImage()"> Download </button></p>
+		<p><button onclick="changeImage()" id="dlBtnDark" class="buttonDark button"> Download </button> 
+		<button onclick="changeImage()" id="dlBtnLight" class="buttonLight button"> Download </button></p>
 
 		<script language="javascript">
 			function changeImage() {
@@ -53,16 +98,21 @@
 			function darkTheme() {
 				document.body.style.backgroundColor = "black";
 				document.body.style.color = "white";
-				document.getElementById("lightthemebtn").style.display = "block";
-				document.getElementById("darkthemebtn").style.display = "none";
-				
+				document.getElementById("lightthemebtn").style.display = document.getElementById("dlBtnLight").style.display = "block";
+				document.getElementById("darkthemebtn").style.display = document.getElementById("dlBtnDark").style.display = "none";
+				document.getElementById("ID").style.border = "2px solid white";
+				document.getElementById("ID").style.color = "white";
+				document.getElementById("ID").style.backgroundColor = "black";
 			}
 			
 			function lightTheme() {
 				document.body.style.backgroundColor = "white";
 				document.body.style.color = "black";
-				document.getElementById("darkthemebtn").style.display = "block";
-				document.getElementById("lightthemebtn").style.display = "none";
+				document.getElementById("darkthemebtn").style.display = document.getElementById("dlBtnDark").style.display = "block";
+				document.getElementById("lightthemebtn").style.display = document.getElementById("dlBtnLight").style.display = "none";
+				document.getElementById("ID").style.border = "2px solid black";
+				document.getElementById("ID").style.color = "black";
+				document.getElementById("ID").style.backgroundColor = "white";
 			}
 		</script>
 
