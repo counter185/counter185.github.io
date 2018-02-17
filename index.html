@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Youtube Thumbnail Downloader HTML v1.2</title>
+		<title>Youtube Thumbnail Downloader HTML v1.3</title>
 		
 		<style>
 		
@@ -64,7 +64,7 @@
 		</style>
 	</head>
 
-	<body>
+	<body onload="loadCookie()">
 	<div id=lightbtns>
 		<button id="darkthemebtn" class="buttonDark button themeBtn" onclick="darkTheme()">Dark Theme</button>
 		<button id="lightthemebtn" class="buttonLight button themeBtn" onclick="lightTheme()">Light Theme</button>
@@ -104,6 +104,7 @@
 			}
 			
 			function darkTheme() {
+				createCookie("theme", "dark", false);
 				document.body.style.backgroundColor = "black";
 				document.body.style.color = "white";
 				document.getElementById("lightthemebtn").style.display = document.getElementById("dlBtnLight").style.display = "block";
@@ -114,6 +115,7 @@
 			}
 			
 			function lightTheme() {
+				createCookie("theme", "light", false);
 				document.body.style.backgroundColor = "white";
 				document.body.style.color = "black";
 				document.getElementById("darkthemebtn").style.display = document.getElementById("dlBtnDark").style.display = "block";
@@ -122,6 +124,44 @@
 				document.getElementById("ID").style.color = "black";
 				document.getElementById("ID").style.backgroundColor = "white";
 			}
+			
+			//stolen code begins here
+			
+			function loadCookie() {
+				if (readCookie("theme") == "light") {
+					lightTheme();
+				}
+			}
+			
+			function createCookie(name, value, days) {
+				var expires = '',
+					date = new Date();
+				if (days) {
+					date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+					expires = '; expires=' + date.toGMTString();
+				}
+				document.cookie = name + '=' + value + expires + '; path=/';
+			}
+
+			function readCookie(name) {
+				var cookies = document.cookie.split(';'),
+					length = cookies.length,
+					i,
+					cookie,
+					nameEQ = name + '=';
+				for (i = 0; i < length; i += 1) {
+						cookie = cookies[i];
+						while (cookie.charAt(0) === ' ') {
+							cookie = cookie.substring(1, cookie.length);
+						}
+						if (cookie.indexOf(nameEQ) === 0) {
+						return cookie.substring(nameEQ.length, cookie.length);
+					}
+				}
+				return null;
+			}
+		
+			//stolen code ends here
 		</script>
 
 		<div id=imgs>
