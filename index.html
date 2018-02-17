@@ -87,7 +87,15 @@
 				if (parseString.substring(0, 17) == "https://youtu.be/") { 
 					document.getElementById('ID').value = parseString.substring (17, 17 + 11);
 				}
-					
+				
+				if (parseString.substring(0, 24) == "www.youtube.com/watch?v=") {
+					document.getElementById('ID').value = parseString.substring (24, 24 + 11);
+				}
+				
+				if (parseString.substring(0, 9) == "youtu.be/") {
+					document.getElementById('ID').value = parseString.substring (9, 9 + 11);
+				}
+				
 				document.getElementById("720").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/maxresdefault.jpg";
 				document.getElementById("480").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/sddefault.jpg";
 				document.getElementById("360").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/hqdefault.jpg";
