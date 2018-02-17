@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Youtube Thumbnail Downloader HTML v1.3</title>
+		<title>Youtube Thumbnail Downloader HTML v1.3a</title>
 		
 		<style>
 		
@@ -75,8 +75,7 @@
 
 		<script language="javascript">
 			function changeImage() {
-				var x = document.getElementById("imgs");
-				x.style.display = "block";
+				
 			
 				var parseString = document.getElementById('ID').value;
 					
@@ -96,11 +95,23 @@
 					document.getElementById('ID').value = parseString.substring (9, 9 + 11);
 				}
 				
-				document.getElementById("720").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/maxresdefault.jpg";
-				document.getElementById("480").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/sddefault.jpg";
-				document.getElementById("360").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/hqdefault.jpg";
-				document.getElementById("180").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/mqdefault.jpg";
-				document.getElementById("90").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/default.jpg";
+				if (document.getElementById("ID").value.length == 11){
+					
+					document.getElementById("errorText").innerHTML = "";
+					document.getElementById("imgs").style.display = "block";
+					document.getElementById("720").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/maxresdefault.jpg";
+					document.getElementById("480").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/sddefault.jpg";
+					document.getElementById("360").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/hqdefault.jpg";
+					document.getElementById("180").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/mqdefault.jpg";
+					document.getElementById("90").src = "https://i.ytimg.com/vi/" + document.getElementById('ID').value + "/default.jpg";
+					
+				} else if (document.getElementById("ID").value.length == 0) {
+					document.getElementById("imgs").style.display = "none";
+					document.getElementById("errorText").innerHTML = "";
+				} else {
+					document.getElementById("imgs").style.display = "none";
+					document.getElementById("errorText").innerHTML = "Invalid Video link/ID";
+				}
 			}
 			
 			function darkTheme() {
@@ -163,7 +174,7 @@
 		
 			//stolen code ends here
 		</script>
-
+		<p id=errorText></p>
 		<div id=imgs>
 			<p>1280x720</p>
 			<p><img id="720" src="" ></p>
