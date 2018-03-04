@@ -73,10 +73,15 @@
 		<button id="lightthemebtn" class="buttonLight button themeBtn" onclick="lightTheme()">Light Theme</button>
 	</div>
 		<p>ID or link: <input type="text" id="ID" value="" onKeyUp="changeImage()"></p>
-		<p><button onclick="changeImage()" id="dlBtnDark" class="buttonDark button"> Download (if it didn't happen automatically) </button>
-		<button onclick="changeImage()" id="dlBtnLight" class="buttonLight button"> Download (if it didn't happen automatically) </button></p>
+		<p><button onclick="changeImage()" id="dlBtnDark" class="buttonDark button">Download (if it didn't happen automatically) </button>
+		<button onclick="changeImage()" id="dlBtnLight" class="buttonLight button">Download (if it didn't happen automatically) </button></p>
 
 		<script language="javascript">
+			function init3ds() {
+				document.getElementById("dlBtnDark").innerHTML = " Download";
+				document.getElementById("dlBtnLight").innerHTML = " Download";
+			}
+		
 			function changeImage() {
 				
 			
@@ -156,6 +161,9 @@
 			function onLoad() {
 				loadCookie();
 				document.onkeyup = keyDetect;
+				if (navigator.platform == "Nintendo 3DS") {
+					init3ds();
+				}
 			}
 			
 			function createCookie(name, value, days) {
