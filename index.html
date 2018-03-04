@@ -77,6 +77,10 @@
 		<button onclick="changeImage()" id="dlBtnLight" class="buttonLight button">Download (if it didn't happen automatically) </button></p>
 
 		<script language="javascript">
+			function themecolor(color) {
+				document.querySelector("meta[name=theme-color]").setAttribute("content", color);
+			}
+		
 			function init3ds() {
 				document.getElementById("dlBtnDark").innerHTML = " Download";
 				document.getElementById("dlBtnLight").innerHTML = " Download";
@@ -137,6 +141,7 @@
 				document.getElementById("ID").style.border = "2px solid white";
 				document.getElementById("ID").style.color = "white";
 				document.getElementById("ID").style.backgroundColor = "black";
+				themecolor("#000000");
 			}
 			
 			function lightTheme() {
@@ -148,6 +153,7 @@
 				document.getElementById("ID").style.border = "2px solid black";
 				document.getElementById("ID").style.color = "black";
 				document.getElementById("ID").style.backgroundColor = "white";
+				themecolor("#FFFFFF");
 			}
 			
 			//stolen code begins here
