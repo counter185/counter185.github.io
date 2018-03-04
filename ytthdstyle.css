@@ -31,18 +31,11 @@
 				color: white;
 			}
 			
-			.themeBtn {
-				font-weight: bold;
-			}
-			
-			.button {
+			.buttonLight {
 				font-size: 40px;
 				transition-duration: 0.2s;
 				-webkit-transition-duration: 0.2s;
 				-moz-transition-duration: 0.2s;
-			}
-			
-			.buttonLight {
 				border: 2px solid black;
 				background-color: white;
 				color: black;
@@ -53,6 +46,10 @@
 			}
 			
 			.buttonDark {
+				font-size: 40px;
+				transition-duration: 0.2s;
+				-webkit-transition-duration: 0.2s;
+				-moz-transition-duration: 0.2s;
 				border: 2px solid white;
 				background-color: black;
 				color: white;
