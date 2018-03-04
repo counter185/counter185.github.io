@@ -1,3 +1,5 @@
+theme = "dark";
+
 function themecolor(color) {
 				document.querySelector("meta[name=theme-color]").setAttribute("content", color);
 			}
@@ -53,28 +55,46 @@ function themecolor(color) {
 				}
 			}
 			
+			
+			
 			function darkTheme() {
 				createCookie("theme", "dark", false);
+				theme = "dark";
 				document.body.style.backgroundColor = "black";
 				document.body.style.color = "white";
-				document.getElementById("lightthemebtn").style.display = document.getElementById("dlBtnLight").style.display = "block";
-				document.getElementById("darkthemebtn").style.display = document.getElementById("dlBtnDark").style.display = "none";
+				document.getElementById("themebtn").classList.remove('buttonLight');
+				document.getElementById("themebtn").classList.add('buttonDark');
 				document.getElementById("ID").style.border = "2px solid white";
 				document.getElementById("ID").style.color = "white";
 				document.getElementById("ID").style.backgroundColor = "black";
+				document.getElementById("themebtn").innerHTML = "Light Theme";
+				document.getElementById("dlBtn").classList.remove('buttonLight');
+				document.getElementById("dlBtn").classList.add('buttonDark');
 				themecolor("#000000");
 			}
 			
 			function lightTheme() {
 				createCookie("theme", "light", false);
+				theme = "light";
 				document.body.style.backgroundColor = "white";
 				document.body.style.color = "black";
-				document.getElementById("darkthemebtn").style.display = document.getElementById("dlBtnDark").style.display = "block";
-				document.getElementById("lightthemebtn").style.display = document.getElementById("dlBtnLight").style.display = "none";
+				document.getElementById("themebtn").classList.remove('buttonDark');
+				document.getElementById("themebtn").classList.add('buttonLight');
 				document.getElementById("ID").style.border = "2px solid black";
 				document.getElementById("ID").style.color = "black";
 				document.getElementById("ID").style.backgroundColor = "white";
+				document.getElementById("themebtn").innerHTML = "Dark Theme";
+				document.getElementById("dlBtn").classList.remove('buttonDark');
+				document.getElementById("dlBtn").classList.add('buttonLight');
 				themecolor("#FFFFFF");
+			}
+			
+			function changeTheme() {
+				if (theme == "dark") {
+					lightTheme();
+				} else {
+					darkTheme();
+				}
 			}
 			
 			function onLoad() {

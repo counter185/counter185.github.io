@@ -42,23 +42,22 @@
 				-moz-transition-duration: 0.2s;
 			}
 			
-			.buttonDark {
-				display: none;
+			.buttonLight {
 				border: 2px solid black;
 				background-color: white;
 				color: black;
 			}
-			.buttonDark:hover {
+			.buttonLight:hover {
 				background-color: black;
 				color: white;
 			}
 			
-			.buttonLight {
+			.buttonDark {
 				border: 2px solid white;
 				background-color: black;
 				color: white;
 			}
-			.buttonLight:hover {
+			.buttonDark:hover {
 				color: black;
 				background-color: white;
 			}
