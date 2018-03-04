@@ -55,8 +55,6 @@ function themecolor(color) {
 				}
 			}
 			
-			
-			
 			function darkTheme() {
 				createCookie("theme", "dark", false);
 				theme = "dark";
