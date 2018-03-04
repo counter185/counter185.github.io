@@ -5,8 +5,7 @@ function themecolor(color) {
 			}
 		
 			function init3ds() {
-				document.getElementById("dlBtnDark").innerHTML = " Download";
-				document.getElementById("dlBtnLight").innerHTML = " Download";
+				document.getElementById("dlBtn").innerHTML = " Download";
 			}
 		
 			function changeImage() {
