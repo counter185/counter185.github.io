@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Youtube Thumbnail Downloader HTML v1.3a</title>
+		<title>Youtube Thumbnail Downloader HTML v1.4</title>
 		<meta name="theme-color" content="#000000">
 		
 		<style>
@@ -162,19 +162,19 @@
 				themecolor("#FFFFFF");
 			}
 			
-			//stolen code begins here
-			
-			function loadCookie() {
-				if (readCookie("theme") == "light") {
-					lightTheme();
-				}
-			}
-			
 			function onLoad() {
 				loadCookie();
 				document.onkeyup = keyDetect;
 				if (navigator.platform == "Nintendo 3DS") {
 					init3ds();
+				}
+			}
+			
+			//stolen code begins here
+			
+			function loadCookie() {
+				if (readCookie("theme") == "light") {
+					lightTheme();
 				}
 			}
 			
