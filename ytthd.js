@@ -93,6 +93,7 @@ function themecolor(color) {
 			function onLoad() {
 				loadCookie();
 				document.onkeyup = keyDetect;
+				document.getElementById("themebtn").style.fontWeight = "bold";
 				if (navigator.platform == "Nintendo 3DS") {
 					init3ds();
 				}
