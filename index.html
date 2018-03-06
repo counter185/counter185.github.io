@@ -8,13 +8,14 @@
 
 	<body onload="onLoad()">
 	<div id=lightbtns>
-		<button id="themebtn" class="buttonDark" onclick="changeTheme()">Light Theme</button>
+		<button id="themebtn" class="hidden" onclick="changeTheme()">Light Theme</button>
 	</div>
-		<p>ID or link: <input type="text" id="ID" value="" onKeyUp="changeImage()"></p>
-		<p><button onclick="changeImage()" id="dlBtn" class="buttonDark">Download (if it didn't happen automatically) </button>
+		<p id="idtext" class="hidden">ID or link: <input type="text" id="ID" value="" onKeyUp="changeImage()" class="hidden"></p>
+		<p><button onclick="changeImage()" id="dlBtn" class="hidden">Download (if it didn't happen automatically) </button>
 
 		<script language="javascript" src="ytthd.js"></script>
 		<p id=errorText></p>
+		<noscript><p>This page requires JavaScript enabled</p></noscript>
 		<div id=imgs>
 			<p>1280x720</p>
 			<p><img id="720" src="" ></p>

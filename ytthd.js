@@ -54,6 +54,14 @@ function themecolor(color) {
 				}
 			}
 			
+			function displayAll() {
+				document.getElementById("ID").className = "inText";
+				document.getElementById("dlBtn").className = "buttonDark";
+				document.getElementById("themebtn").className = "buttonDark";
+				document.getElementById("idtext").className = "vis";
+				document.getElementById("themebtn").style.fontWeight = "bold";
+			}
+			
 			function darkTheme() {
 				createCookie("theme", "dark", false);
 				theme = "dark";
@@ -91,9 +99,9 @@ function themecolor(color) {
 			}
 			
 			function onLoad() {
+				displayAll();
 				loadCookie();
 				document.onkeyup = keyDetect;
-				document.getElementById("themebtn").style.fontWeight = "bold";
 				if (navigator.platform == "Nintendo 3DS") {
 					init3ds();
 				}
@@ -104,6 +112,8 @@ function themecolor(color) {
 			function loadCookie() {
 				if (readCookie("theme") == "light") {
 					lightTheme();
+				} else {
+					darkTheme();
 				}
 			}
 			
