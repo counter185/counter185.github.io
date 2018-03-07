@@ -1,7 +1,3 @@
-			#imgs {
-				display: none;
-			}
-			
 			body {
 				transition-duration: 0.2s;
 				-webkit-transition-duration: 0.2s;
@@ -19,6 +15,12 @@
 			
 			.vis {
 				display: block;
+			}
+			
+			.sideImg {
+				margin-right: 1%;
+				vertical-align: top;
+				display: inline-block;
 			}
 			
 			.inText {
