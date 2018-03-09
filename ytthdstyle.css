@@ -1,3 +1,13 @@
+			#ID {
+				transition-duration: 0.2s;
+				-webkit-transition-duration: 0.2s;
+				-moz-transition-duration: 0.2s;
+				margin-top: 2px;
+				margin-bottom: 2px;
+				height: 60px;
+				font-size: 50px;
+			}
+			
 			body {
 				transition-duration: 0.2s;
 				-webkit-transition-duration: 0.2s;
@@ -23,17 +33,16 @@
 				display: inline-block;
 			}
 			
-			.inText {
-				transition-duration: 0.2s;
-				-webkit-transition-duration: 0.2s;
-				-moz-transition-duration: 0.2s;
-				margin-top: 2px;
-				margin-bottom: 2px;
-				height: 60px;
+			.inTextDark {
 				border: 2px solid white;
-				font-size: 50px;
 				background-color: black;
 				color: white;
+			}
+			
+			.inTextLight {
+				border: 2px solid black;
+				background-color: white;
+				color: black;
 			}
 			
 			.hidden {

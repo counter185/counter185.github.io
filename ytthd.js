@@ -68,9 +68,7 @@ function themecolor(color) {
 				document.body.style.backgroundColor = "black";
 				document.body.style.color = "white";
 				document.getElementById("themebtn").className = 'buttonDark';
-				document.getElementById("ID").style.border = "2px solid white";
-				document.getElementById("ID").style.color = "white";
-				document.getElementById("ID").style.backgroundColor = "black";
+				document.getElementById("ID").className = "inTextDark";
 				document.getElementById("themebtn").innerHTML = "Light Theme";
 				document.getElementById("dlBtn").className = 'buttonDark';
 				themecolor("#000000");
@@ -82,9 +80,7 @@ function themecolor(color) {
 				document.body.style.backgroundColor = "white";
 				document.body.style.color = "black";
 				document.getElementById("themebtn").className = 'buttonLight';
-				document.getElementById("ID").style.border = "2px solid black";
-				document.getElementById("ID").style.color = "black";
-				document.getElementById("ID").style.backgroundColor = "white";
+				document.getElementById("ID").className = "inTextLight";
 				document.getElementById("themebtn").innerHTML = "Dark Theme";
 				document.getElementById("dlBtn").className = 'buttonLight';
 				themecolor("#FFFFFF");
