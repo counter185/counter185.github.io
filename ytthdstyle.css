@@ -43,10 +43,18 @@ p {
 	color: white;
 }
 
+.inTextDark:hover {
+	background-color: #1a1a1a;
+}
+
 .inTextLight {
 	border: 2px solid black;
 	background-color: white;
 	color: black;
+}
+
+.inTextLight:hover {
+	background-color: #e6e6e6;
 }
 
 .hidden {
@@ -64,6 +72,10 @@ p {
 	display: block;
 }
 .buttonLight:hover {
+	background-color: #e6e6e6;
+}
+
+.buttonLight:active {
 	background-color: black;
 	color: white;
 }
@@ -79,6 +91,9 @@ p {
 	display: block;
 }
 .buttonDark:hover {
+	background-color: #1a1a1a;
+}
+.buttonDark:active {
 	color: black;
 	background-color: white;
 }
