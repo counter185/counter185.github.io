@@ -110,8 +110,8 @@ function updateLastImg() {
 }
 
 function getIdFromUrl() {
-	if (window.location.pathname.substring(1).startsWith("?id=")) {
-		idBox.value = window.location.pathname.substring(1); //does not work on 3ds browser
+	if (window.location.href.substring(window.location.href.length - 15).startsWith("?id=")) {
+		idBox.value = window.location.href.substring(window.location.href.length - 11); //does not work on 3ds browser
 		changeImage();
 	}
 }
