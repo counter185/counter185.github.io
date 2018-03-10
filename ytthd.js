@@ -22,6 +22,10 @@ function parseLink(inpLink) {
 		return inpLink.substring (17, 17 + 11);
 	}
 	
+	if (inpLink.substring(0, 30) == "https://m.youtube.com/watch?v=") {
+		return inpLink.substring(30, 30 + 11);
+	}
+	
 	if (inpLink.substring(0, 24) == "www.youtube.com/watch?v=") {
 		return inpLink.substring (24, 24 + 11);
 	}
