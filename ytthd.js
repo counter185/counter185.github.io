@@ -1,4 +1,9 @@
 theme = "dark";
+/*cookies:
+"theme" - "light" or "dark" - controls theme
+"lastId" - previous id
+*/
+
 
 function themecolor(color) {
 	themeColorQuery.setAttribute("content", color);
@@ -8,25 +13,28 @@ function init3ds() {
 	dlBtn.innerHTML = " Download";
 }
 		
-function changeImage() {
-	
-	var parseString = idBox.value;
-
-	if (parseString.substring(0, 32) == "https://www.youtube.com/watch?v=") {
-		idBox.value = parseString.substring (32, 32 + 11);
+function parseLink(inpLink) {
+	if (inpLink.substring(0, 32) == "https://www.youtube.com/watch?v=") {
+		return inpLink.substring (32, 32 + 11);
 	}
 	
-	if (parseString.substring(0, 17) == "https://youtu.be/") { 
-		idBox.value = parseString.substring (17, 17 + 11);
+	if (inpLink.substring(0, 17) == "https://youtu.be/") { 
+		return inpLink.substring (17, 17 + 11);
 	}
 	
-	if (parseString.substring(0, 24) == "www.youtube.com/watch?v=") {
-		idBox.value = parseString.substring (24, 24 + 11);
+	if (inpLink.substring(0, 24) == "www.youtube.com/watch?v=") {
+		return inpLink.substring (24, 24 + 11);
 	}
 				
-	if (parseString.substring(0, 9) == "youtu.be/") {
-		idBox.value = parseString.substring (9, 9 + 11);
+	if (inpLink.substring(0, 9) == "youtu.be/") {
+		return inpLink.substring (9, 9 + 11);
 	}
+	return inpLink;
+}
+
+function changeImage() {
+	
+	idBox.value = parseLink(idBox.value);
 
 	if (idBox.value.length == 11){
 
@@ -37,6 +45,8 @@ function changeImage() {
 		i360.src = "https://i.ytimg.com/vi/" + idBox.value + "/hqdefault.jpg";
 		i180.src = "https://i.ytimg.com/vi/" + idBox.value + "/mqdefault.jpg";
 		i90.src = "https://i.ytimg.com/vi/" + idBox.value + "/default.jpg";
+		createCookie("lastId", idBox.value, false);
+		updateLastImg();
 	
 	} else if (idBox.value.length == 0) {
 		imgs.style.display = "none";
@@ -84,6 +94,15 @@ function lightTheme() {
 	themecolor("#FFFFFF");
 }
 
+function updateLastImg() {
+	var idCookie = readCookie("lastId");
+	if (idCookie.length == 11) {
+		prevImgP.className = "vis";
+		prevImgA.href = "/?id=" + idCookie;
+		prevImg.src = "https://i.ytimg.com/vi/" + idCookie + "/mqdefault.jpg";
+	}
+}
+
 function getIdFromUrl() {
 	if (window.location.href.substring(window.location.href.length - 15).startsWith("?id=")) {
 		idBox.value = window.location.href.substring(window.location.href.length - 11);
@@ -112,6 +131,9 @@ function getDocumentVars() {
 	i90 = document.getElementById("90");
 	themeBtn = document.getElementById("themebtn");
 	idP = document.getElementById("idtext");
+	prevImgP = document.getElementById("previmgp");
+	prevImgA = document.getElementById("previmga");
+	prevImg = document.getElementById("previmg");
 }
 
 function onLoad() {
@@ -119,13 +141,12 @@ function onLoad() {
 	displayAll();
 	loadCookie();
 	getIdFromUrl();
+	updateLastImg();
 	document.onkeyup = keyDetect;
 	if (navigator.platform == "Nintendo 3DS") {
 		init3ds();
 	}
 }
-
-//stolen code begins here
 
 function loadCookie() {
 	if (readCookie("theme") == "light") {
@@ -134,6 +155,8 @@ function loadCookie() {
 		darkTheme();
 	}
 }
+
+//stolen code begins here
 
 function createCookie(name, value, days) {
 	var expires = '',
