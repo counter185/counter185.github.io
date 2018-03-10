@@ -108,8 +108,8 @@ function updateLastImg() {
 }
 
 function getIdFromUrl() {
-	if (window.location.href.substring(window.location.href.length - 15).startsWith("?id=")) {
-		idBox.value = window.location.href.substring(window.location.href.length - 11);
+	if (window.location.pathname.substring(1).startsWith("?id=")) {
+		idBox.value = window.location.pathname.substring(1);
 		changeImage();
 	}
 }
