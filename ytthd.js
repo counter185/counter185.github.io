@@ -49,8 +49,10 @@ function changeImage() {
 		i360.src = "https://i.ytimg.com/vi/" + idBox.value + "/hqdefault.jpg";
 		i180.src = "https://i.ytimg.com/vi/" + idBox.value + "/mqdefault.jpg";
 		i90.src = "https://i.ytimg.com/vi/" + idBox.value + "/default.jpg";
-		createCookie("lastId", idBox.value, false);
-		updateLastImg();
+		if (navigator.platform != "Nintendo 3DS") {
+			createCookie("lastId", idBox.value, false);
+			updateLastImg();
+		}
 	
 	} else if (idBox.value.length == 0) {
 		imgs.style.display = "none";
@@ -109,7 +111,7 @@ function updateLastImg() {
 
 function getIdFromUrl() {
 	if (window.location.pathname.substring(1).startsWith("?id=")) {
-		idBox.value = window.location.pathname.substring(1);
+		idBox.value = window.location.pathname.substring(1); //does not work on 3ds browser
 		changeImage();
 	}
 }
@@ -148,8 +150,10 @@ function onLoad() {
 	}
 	displayAll();
 	loadCookie();
-	getIdFromUrl();
-	updateLastImg();
+	if (navigator.platform != "Nintendo 3DS") {
+		getIdFromUrl();
+		updateLastImg();
+	}
 }
 
 function loadCookie() {
