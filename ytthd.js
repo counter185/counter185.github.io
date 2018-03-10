@@ -84,6 +84,13 @@ function lightTheme() {
 	themecolor("#FFFFFF");
 }
 
+function getIdFromUrl() {
+	if (window.location.href.substring(window.location.href.length - 15).startsWith("?id=")) {
+		idBox.value = window.location.href.substring(window.location.href.length - 11);
+		changeImage();
+	}
+}
+
 function changeTheme() {
 	if (theme == "dark") {
 		lightTheme();
@@ -111,6 +118,7 @@ function onLoad() {
 	getDocumentVars();
 	displayAll();
 	loadCookie();
+	getIdFromUrl();
 	document.onkeyup = keyDetect;
 	if (navigator.platform == "Nintendo 3DS") {
 		init3ds();
