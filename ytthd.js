@@ -142,14 +142,14 @@ function getDocumentVars() {
 
 function onLoad() {
 	getDocumentVars();
-	displayAll();
-	loadCookie();
-	getIdFromUrl();
-	updateLastImg();
 	document.onkeyup = keyDetect;
 	if (navigator.platform == "Nintendo 3DS") {
 		init3ds();
 	}
+	displayAll();
+	loadCookie();
+	getIdFromUrl();
+	updateLastImg();
 }
 
 function loadCookie() {
