@@ -49,10 +49,6 @@ function changeImage() {
 		i360.src = "https://i.ytimg.com/vi/" + idBox.value + "/hqdefault.jpg";
 		i180.src = "https://i.ytimg.com/vi/" + idBox.value + "/mqdefault.jpg";
 		i90.src = "https://i.ytimg.com/vi/" + idBox.value + "/default.jpg";
-		if (navigator.platform != "Nintendo 3DS") {
-			createCookie("lastId", idBox.value, false);
-			updateLastImg();
-		}
 	
 	} else if (idBox.value.length == 0) {
 		imgs.style.display = "none";
@@ -100,15 +96,6 @@ function lightTheme() {
 	themecolor("#FFFFFF");
 }
 
-function updateLastImg() {
-	var idCookie = readCookie("lastId");
-	if (idCookie.length == 11) {
-		prevImgP.className = "vis";
-		prevImgA.href = "/?id=" + idCookie;
-		prevImg.src = "https://i.ytimg.com/vi/" + idCookie + "/mqdefault.jpg";
-	}
-}
-
 function getIdFromUrl() {
 	if (window.location.href.substring(window.location.href.length - 15).startsWith("?id=")) {
 		idBox.value = window.location.href.substring(window.location.href.length - 11); //does not work on 3ds browser
@@ -137,9 +124,6 @@ function getDocumentVars() {
 	i90 = document.getElementById("90");
 	themeBtn = document.getElementById("themebtn");
 	idP = document.getElementById("idtext");
-	prevImgP = document.getElementById("previmgp");
-	prevImgA = document.getElementById("previmga");
-	prevImg = document.getElementById("previmg");
 }
 
 function onLoad() {
@@ -152,7 +136,6 @@ function onLoad() {
 	loadCookie();
 	if (navigator.platform != "Nintendo 3DS") {
 		getIdFromUrl();
-		updateLastImg();
 	}
 }
 
