@@ -73,7 +73,7 @@ function displayAll() {
 }
 
 function darkTheme() {
-	createCookie("theme", "dark", false);
+	createCookie("theme", "dark", 1000);
 	theme = "dark";
 	document.body.style.backgroundColor = "black";
 	document.body.style.color = "white";
@@ -85,7 +85,7 @@ function darkTheme() {
 }
 			
 function lightTheme() {
-	createCookie("theme", "light", false);
+	createCookie("theme", "light", 1000);
 	theme = "light";
 	document.body.style.backgroundColor = "white";
 	document.body.style.color = "black";
