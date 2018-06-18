@@ -49,13 +49,15 @@ function changeImage() {
 		i360.src = "https://i.ytimg.com/vi/" + idBox.value + "/hqdefault.jpg";
 		i180.src = "https://i.ytimg.com/vi/" + idBox.value + "/mqdefault.jpg";
 		i90.src = "https://i.ytimg.com/vi/" + idBox.value + "/default.jpg";
+		directlink.innerHTML = "Direct link: https://counter185.github.io/?id=" + idBox.value;
 		//don't even try
 		//it doesn't work
 		if (navigator.platform != "Nintendo 3DS") {
 			createCookie("lastId", idBox.value, 1000);
 			updateLastImg();
 		}
-	
+		resetPs();
+		checkImgs();
 	} else if (idBox.value.length == 0) {
 		imgs.style.display = "none";
 		errorText.innerHTML = "";
@@ -63,6 +65,32 @@ function changeImage() {
 		imgs.style.display = "none";
 		errorText.innerHTML = "Invalid Video link/ID";
 	}
+	
+	
+}
+
+function resetPs() {
+	p720.style = p480.style = "display: block;";
+	p360.style = p180.style = "display: inline-block;";
+}
+
+function checkImgs() {
+	if (i720.clientWidth == 0 || i480.clientWidth == 0 || i360.clientWidth == 0 || i180.clientWidth == 0) {
+		setTimeout(function() {checkImgs();}, 100);
+	}
+	if (i720.clientWidth == 120) {
+		p720.style = "display: none;";
+	}
+	if (i480.clientWidth == 120) {
+		p480.style = "display: none;";
+	}
+	if (i360.clientWidth == 120) {
+		p360.style = "display: none;";
+	}
+	if (i180.clientWidth == 120) {
+		p180.style = "display: none;";
+	}
+	return true;
 }
 
 function keyDetect(e) {
@@ -139,6 +167,7 @@ function partialDisplay() {
 }
 
 function getDocumentVars() {
+	directlink = document.getElementById("direct");
 	partialT = document.getElementById("partial");
 	partBB = document.getElementById("partialBack");
 	themeColorQuery = document.querySelector("meta[name=theme-color]");
@@ -151,6 +180,10 @@ function getDocumentVars() {
 	i360 = document.getElementById("360");
 	i180 = document.getElementById("180");
 	i90 = document.getElementById("90");
+	p720 = document.getElementById("p720");
+	p480 = document.getElementById("p480");
+	p360 = document.getElementById("p360");
+	p180 = document.getElementById("p180");
 	themeBtn = document.getElementById("themebtn");
 	idP = document.getElementById("idtext");
 	prevImgP = document.getElementById("previmgp");
