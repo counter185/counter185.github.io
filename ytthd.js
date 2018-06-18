@@ -174,7 +174,8 @@ function onLoad() {
 	}
 	if (partialFlag == false){
 		displayAll();
-	} else {
+	}
+	if (partialFlag == true){
 		prevImgP.className = "hidden";
 	}
 	loadCookie();
