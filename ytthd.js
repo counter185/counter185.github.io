@@ -136,6 +136,7 @@ function partialDisplay() {
 	partialT.style = "display: block; font-size: 73px;";
 	themeBtn.style = dlBtn.style = "display: none;"
 	partBB.style = "display: block;";
+	previmgP = "display: none;";
 }
 
 function getDocumentVars() {
