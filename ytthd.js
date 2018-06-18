@@ -1,4 +1,5 @@
 theme = "dark";
+reset = true;
 /*cookies:
 "theme" - "light" or "dark" - controls theme
 "lastId" - previous id
@@ -70,28 +71,30 @@ function changeImage() {
 }
 
 function resetPs() {
+	reset = true;
 	p720.style = p480.style = "display: block;";
 	p360.style = p180.style = "display: inline-block;";
 }
 
 function checkImgs() {
-	console.log(i720.clientWidth);
-	if (i720.clientWidth == 0 || i480.clientWidth == 0 || i360.clientWidth == 0 || i180.clientWidth == 0) {
-		setTimeout(function() {checkImgs();}, 100);
+	if (reset == true) {
+		if (i720.clientWidth == 0 || i480.clientWidth == 0 || i360.clientWidth == 0 || i180.clientWidth == 0) {
+			setTimeout(function() {checkImgs();}, 300);
+		}
+		if (i720.clientWidth == 120) {
+			p720.style = "display: none;";
+		}
+		if (i480.clientWidth == 120) {
+			p480.style = "display: none;";
+		}
+		if (i360.clientWidth == 120) {
+			p360.style = "display: none;";
+		}
+		if (i180.clientWidth == 120) {
+			p180.style = "display: none;";
+		}
+		reset = false;
 	}
-	if (i720.clientWidth == 120) {
-		p720.style = "display: none;";
-	}
-	if (i480.clientWidth == 120) {
-		p480.style = "display: none;";
-	}
-	if (i360.clientWidth == 120) {
-		p360.style = "display: none;";
-	}
-	if (i180.clientWidth == 120) {
-		p180.style = "display: none;";
-	}
-	return true;
 }
 
 function keyDetect(e) {
