@@ -13,6 +13,9 @@
 		<p id=idtext class="hidden">ID or link: <input type="text" id=ID value="" onKeyUp="changeImage()" class="hidden"></p>
 		<p><button onclick="changeImage()" id=dlBtn class="hidden">Download (if it didn't happen automatically) </button>
 		
+		<p id=partial style="display: none;">Viewing thumbnails for video ID: </p>
+		<p><button id=partialBack style="display: none;" onclick="window.location.href = 'https://counter185.github.io'">Back</button></p>
+		
 		<p id=previmgp class=hidden>Last image:<br>
 			<a id=previmga href="">
 				<img id=previmg src="">
@@ -22,7 +25,7 @@
 		<script language="javascript" src="ytthd.js"></script>
 		<p id=errorText></p>
 		<noscript><p>This page requires JavaScript enabled</p></noscript>
-		<div id=imgs style="display: none">
+		<div id=imgs style="display: none;">
 			<p align="center">1280x720<br>
 			<img id="720" src="" ></p>
 

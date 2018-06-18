@@ -83,10 +83,9 @@ function darkTheme() {
 	theme = "dark";
 	document.body.style.backgroundColor = "black";
 	document.body.style.color = "white";
-	themeBtn.className = 'buttonDark';
+	themeBtn.className = partBB.className = dlBtn.className = 'buttonDark';
 	idBox.className = "inTextDark";
 	themeBtn.innerHTML = "Light Theme";
-	dlBtn.className = 'buttonDark';
 	themecolor("#000000");
 }
 			
@@ -95,19 +94,22 @@ function lightTheme() {
 	theme = "light";
 	document.body.style.backgroundColor = "white";
 	document.body.style.color = "black";
-	themeBtn.className = 'buttonLight';
+	themeBtn.className = partBB.className = dlBtn.className = 'buttonLight';
 	idBox.className = "inTextLight";
 	themeBtn.innerHTML = "Dark Theme";
-	dlBtn.className = 'buttonLight';
 	themecolor("#FFFFFF");
 }
 
 function updateLastImg() {
-	var idCookie = readCookie("lastId");
-	if (idCookie.length == 11) {
-		prevImgP.className = "vis";
-		prevImgA.href = "/?id=" + idCookie;
-		prevImg.src = "https://i.ytimg.com/vi/" + idCookie + "/mqdefault.jpg";
+	try {
+		var idCookie = readCookie("lastId");
+		if (idCookie.length == 11) {
+			prevImgP.className = "vis";
+			prevImgA.href = "/?id=" + idCookie;
+			prevImg.src = "https://i.ytimg.com/vi/" + idCookie + "/mqdefault.jpg";
+		}
+	} catch (Exception) {
+		//die silently
 	}
 }
 
@@ -115,6 +117,9 @@ function getIdFromUrl() {
 	if (window.location.href.substring(window.location.href.length - 15).startsWith("?id=")) {
 		idBox.value = window.location.href.substring(window.location.href.length - 11); //does not work on 3ds browser
 		changeImage();
+		return true;
+	} else {
+		return false;
 	}
 }
 
@@ -126,7 +131,16 @@ function changeTheme() {
 	}
 }
 
+function partialDisplay() {
+	partialT.innerHTML += idBox.value;
+	partialT.style = "display: block; font-size: 73px;";
+	themeBtn.style = dlBtn.style = "display: none;"
+	partBB.style = "display: block;";
+}
+
 function getDocumentVars() {
+	partialT = document.getElementById("partial");
+	partBB = document.getElementById("partialBack");
 	themeColorQuery = document.querySelector("meta[name=theme-color]");
 	dlBtn = document.getElementById("dlBtn");
 	idBox = document.getElementById('ID');
@@ -145,17 +159,23 @@ function getDocumentVars() {
 }
 
 function onLoad() {
+	var partialFlag = false;
 	getDocumentVars();
 	document.onkeyup = keyDetect;
+	if (navigator.platform != "Nintendo 3DS") {
+		if (getIdFromUrl()) {
+			partialDisplay();
+			partialFlag = true;
+		}
+		updateLastImg();
+	}
 	if (navigator.platform == "Nintendo 3DS") {
 		init3ds();
 	}
-	displayAll();
-	loadCookie();
-	if (navigator.platform != "Nintendo 3DS") {
-		getIdFromUrl();
-		updateLastImg();
+	if (!partialFlag){
+		displayAll();
 	}
+	loadCookie();
 }
 
 function loadCookie() {
