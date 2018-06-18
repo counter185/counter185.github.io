@@ -75,7 +75,7 @@ function resetPs() {
 }
 
 function checkImgs() {
-	console.log("e");
+	console.log(i720.clientWidth);
 	if (i720.clientWidth == 0 || i480.clientWidth == 0 || i360.clientWidth == 0 || i180.clientWidth == 0) {
 		setTimeout(function() {checkImgs();}, 100);
 	}
