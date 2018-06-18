@@ -163,7 +163,7 @@ function onLoad() {
 	getDocumentVars();
 	document.onkeyup = keyDetect;
 	if (navigator.platform != "Nintendo 3DS") {
-		if (getIdFromUrl()) {
+		if (getIdFromUrl() == true) {
 			partialDisplay();
 			partialFlag = true;
 		}
@@ -172,7 +172,7 @@ function onLoad() {
 	if (navigator.platform == "Nintendo 3DS") {
 		init3ds();
 	}
-	if (!partialFlag){
+	if (partialFlag == false){
 		displayAll();
 	}
 	loadCookie();
