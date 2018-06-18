@@ -136,7 +136,6 @@ function partialDisplay() {
 	partialT.style = "display: block; font-size: 73px;";
 	themeBtn.style = dlBtn.style = "display: none;"
 	partBB.style = "display: block;";
-	previmgP.style = "display: none;";
 }
 
 function getDocumentVars() {
@@ -175,6 +174,8 @@ function onLoad() {
 	}
 	if (partialFlag == false){
 		displayAll();
+	} else {
+		prevImgP.className = "hidden";
 	}
 	loadCookie();
 }
