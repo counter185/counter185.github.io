@@ -23,13 +23,13 @@ function parseLink(inpLink) {
 	}
 
 	if (parseLink.startsWith("www.youtube.com/watch?v=")) {
-		return inpLink.substring (27, 27 + 11);
+		return parseLink.substring (27, 27 + 11);
 	} 
 	else if (parseLink.startsWith("youtu.be/")) { 
-		return inpLink.substring (12, 12 + 11);
+		return parseLink.substring (12, 12 + 11);
 	} 
 	else if (parseLink.startsWith("m.youtube.com/watch?v=")) {
-		return inpLink.substring(25, 25 + 11);
+		return parseLink.substring(25, 25 + 11);
 	}
 	
 	return inpLink;
