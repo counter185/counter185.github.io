@@ -18,7 +18,7 @@ function parseLink(inpLink) {
 
 	var parseLink = inpLink;
 
-	if (inpLink.substring(0, 8) == "https://") {
+	if (inpLink.startsWith("https://")) {
 		parseLink = inpLink.slice(8);
 	}
 
