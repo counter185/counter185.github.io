@@ -15,25 +15,23 @@ function init3ds() {
 }
 		
 function parseLink(inpLink) {
-	if (inpLink.substring(0, 32) == "https://www.youtube.com/watch?v=") {
-		return inpLink.substring (32, 32 + 11);
+
+	var parseLink = inpLink;
+
+	if (inpLink.substring(0, 8) == "https://") {
+		parseLink = inpLink.slice(8);
+	}
+
+	if (parseLink.startsWith("www.youtube.com/watch?v=")) {
+		return inpLink.substring (27, 27 + 11);
+	} 
+	else if (parseLink.startsWith("youtu.be/")) { 
+		return inpLink.substring (12, 12 + 11);
+	} 
+	else if (parseLink.startsWith("m.youtube.com/watch?v=")) {
+		return inpLink.substring(25, 25 + 11);
 	}
 	
-	if (inpLink.substring(0, 17) == "https://youtu.be/") { 
-		return inpLink.substring (17, 17 + 11);
-	}
-	
-	if (inpLink.substring(0, 30) == "https://m.youtube.com/watch?v=") {
-		return inpLink.substring(30, 30 + 11);
-	}
-	
-	if (inpLink.substring(0, 24) == "www.youtube.com/watch?v=") {
-		return inpLink.substring (24, 24 + 11);
-	}
-				
-	if (inpLink.substring(0, 9) == "youtu.be/") {
-		return inpLink.substring (9, 9 + 11);
-	}
 	return inpLink;
 }
 
