@@ -1,52 +1,87 @@
-<!DOCTYPE html>
 <html>
 	<head>
-		<title>Youtube Thumbnail Downloader HTML v1.5</title>
-		<meta name="theme-color" content="#000000">
-
-		<link rel="stylesheet" type="text/css" href="ytthdstyle.css">
-	</head>
-
-	<body onload="onLoad()">
-
-		<button id=themebtn class="hidden" onclick="changeTheme()">Light Theme</button>
-		<p id=idtext class="hidden">ID or link: <input type="text" id=ID value="" onKeyUp="changeImage()" class="hidden"></p>
-		<p><button onclick="changeImage()" id=dlBtn class="hidden">Download (if it didn't happen automatically) </button>
-		
-		<p id=partial style="display: none;">Viewing thumbnails for video ID: </p>
-		<p><button id=partialBack style="display: none;" onclick="window.location.href = 'https://counter185.github.io'">Back</button></p>
-		
-		<p id=previmgp class=hidden>Last image:<br>
-			<a id=previmga href="">
-				<img id=previmg src=""></img>
-			</a>
-		</p>
-		
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script language="javascript" src="js.js"></script>
+	</head> 
+	<body onload="getVar()"> 
+	<div id="mainpage" class="fade"> 
+		<p>counter185.github.io</p> 
+		<h1>This is the website dedicated to all programming work I've done. Everything here is open-source, but please credit me if you're ever going to use anything. Have fun!</h1> 
+		<br> 
+		<button class=buttonDark onclick="openAutoRelaunch()">AutoRelaunch</button> 
+		<br>
+		<button class=buttonDark onclick="openYtThD()">YoutubeThumbnailDownloader</button> 
+		<br>
+		<button class=buttonDark onclick="openImageCorruptor()">ImageCorruptor</button> 
+		<br>
+		<button class=buttonDark onclick="openEmojiStudio()">EmojiStudio</button> 
+	</div> 
+	<div class="fade" id="autoRelaunch" style="display:none"> 
+		<p>AutoRelaunch</p> 
+		<h1>written in: <span class="lang langCs">C#</span></h1> 
+		<h2>This is my first serious project related to programming. This is a troll app that, as the name suggests, will relaunch a selected application whenever it's closed.</h2> 
+		<h1>How to use:</h1> 
+		<h2>1. Launch the app <br>2. Point to the exe file of the application <br>3. Input the name of the process (without the extension) <br>4. (Optional) Change the delay <br>Now click "Activate" and "Hide this window"</h2> 
+		<h1>Project link: </h1> 
+		<a href="https://github.com/counter185/autoRelaunch">github.com/counter185/autoRelaunch</a> 
+		<br>
+		<button onclick="back()" class="backbtn">Back</button>
+	</div> 
+	<div class="fade" id="youtubeThumbnailDownloader" style="display:none">
+		<p>YoutubeThumbnailDownloader</p> 
+		<h1>written in: <span class="lang langJs">JS</span></h1> 
+		<h2>This is a JavaScript tool to download thumbnails from YouTube.
+		<br>Just paste in a link and it will bring up the thumbnail in all available resolutions.</h2>
+		<button onclick="back()" class="backbtn">Back</button>
+		<h1>Try now:</h1>
+		<h2 id=idtext>ID or link: <input type="text" id=ID value="" class="buttonDark" onKeyUp="changeImage()"></h2>
+		<p><button onclick="changeImage()" id=dlBtn class="buttonDark">Download (if it didn't happen automatically) </button>
 		<script language="javascript" src="ytthd.js"></script>
 		<p id=errorText></p>
-		<noscript><p>This page requires JavaScript enabled</p></noscript>
 		<div id=imgs style="display: none;">
-			<p id=p720 align="center">1280x720<br>
-			<img id="720" src="" ></p>
+			<h2 id=p720 align="center">1280x720<br>
+			<img id="720" src="" ></h2>
 
-			<p id=p480 align="center">640x480<br>
-			<img id="480" src="" ></p>
+			<h2 id=p480 align="center">640x480<br>
+			<img id="480" src="" ></h2>
 
 			<div align="center">
-				<p id=p360 class="sideImg" style="width: 480px;">480x360<br>
-				<img id="360" src="" ></p>
+				<h2 id=p360 class="sideImg" style="width: 480px;">480x360<br>
+				<img id="360" src="" ></h2>
 			
 			
-				<p id=p180 class="sideImg" style="width: 320px;">320x180<br>
-				<img id="180" src="" ></p>
+				<h2 id=p180 class="sideImg" style="width: 320px;">320x180<br>
+				<img id="180" src="" ></h2>
 			
 			
-				<p id=p90 class="sideImg" style="width: 120px;">120x90<br>
-				<img id="90" src="" ></p>
+				<h2 id=p90 class="sideImg" style="width: 120px;">120x90<br>
+				<img id="90" src="" ></h2>
 			</div>
-			<p id=direct style="font-size: 30px;"></p>
 		</div>
-
-	</body>
-</html>
-    
+	</div>
+	<div class="fade" id="imageCorruptor" style="display:none">
+		<p>ImageCorruptor</p> 
+		<h1>written in: <span class="lang langCs">C#</span></h1> 
+		<h2>This is my second C# app. This one was made to make images appear corrupted.<br>Works best on JPEG images.</h2> 
+		<h1>Instructions on how to use this are in the github readme.</h1> 
+		<h1>Project link: </h1> 
+		<a href="https://github.com/counter185/imageCorruptor">github.com/counter185/imageCorruptor</a> 
+		<br>
+		<button onclick="back()" class="backbtn">Back</button>
+	</div>
+	<div class="fade" id="emojiStudio" style="display:none">
+		<p>EmojiStudio</p> 
+		<h1>written in: <span class="lang langCs">C#</span></h1> 
+		<h2>This is my first big finished Android app. Rather than using Android Studio, i used Xamarin.
+		<br>This is an app that allows you to create emoji art. It was originally a port of a python script I made that could convert BMP files to emoji art.
+		<br>The app was supposed to be easy to use, so instead of converting files, I decided to switch to making an entire editor.
+		<br>I originally tried to upload this onto Amazon's app store, but it was rejected.</h2> 
+		<h1>How to use:</h1>
+		<h2>1. Launch app<br>2. Color code your emoji art<br>3. Change the color coding<br>4. Copy to clipboard<br>5. Disappoint your WhatsApp family chat</h2>
+		<h1>Project link: </h1> 
+		<a href="https://github.com/counter185/emojiStudio">github.com/counter185/emojiStudio</a> 
+		<br>
+		<button onclick="back()" class="backbtn">Back</button>
+	</div>
+ 
+</body></html>

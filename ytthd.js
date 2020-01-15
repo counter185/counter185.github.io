@@ -1,17 +1,26 @@
-theme = "dark";
 reset = true;
 /*cookies:
 "theme" - "light" or "dark" - controls theme
 "lastId" - previous id
 */
 
-
-function themecolor(color) {
-	themeColorQuery.setAttribute("content", color);
-}
-
-function init3ds() {
-	dlBtn.innerHTML = " Download";
+		
+function getVar(){
+	partialT = document.getElementById("partial");
+	partBB = document.getElementById("partialBack");
+	dlBtn = document.getElementById("dlBtn");
+	idBox = document.getElementById('ID');
+	imgs = document.getElementById("imgs");
+	i720 = document.getElementById("720");
+	i480 = document.getElementById("480");
+	i360 = document.getElementById("360");
+	i180 = document.getElementById("180");
+	i90 = document.getElementById("90");
+	p720 = document.getElementById("p720");
+	p480 = document.getElementById("p480");
+	p360 = document.getElementById("p360");
+	p180 = document.getElementById("p180");
+	idP = document.getElementById("idtext");
 }
 		
 function parseLink(inpLink) {
@@ -43,28 +52,21 @@ function changeImage() {
 
 	if (idBox.value.length == 11){
 
-		errorText.innerHTML = "";
+		document.getElementById("errorText").innerHTML = "";
 		imgs.style.display = "block";
 		i720.src = "https://i.ytimg.com/vi/" + idBox.value + "/maxresdefault.jpg";
 		i480.src = "https://i.ytimg.com/vi/" + idBox.value + "/sddefault.jpg";
 		i360.src = "https://i.ytimg.com/vi/" + idBox.value + "/hqdefault.jpg";
 		i180.src = "https://i.ytimg.com/vi/" + idBox.value + "/mqdefault.jpg";
 		i90.src = "https://i.ytimg.com/vi/" + idBox.value + "/default.jpg";
-		directlink.innerHTML = "Direct link: https://counter185.github.io/?id=" + idBox.value;
-		//don't even try
-		//it doesn't work
-		if (navigator.platform != "Nintendo 3DS") {
-			createCookie("lastId", idBox.value, 1000);
-			updateLastImg();
-		}
 		resetPs();
 		checkImgs();
 	} else if (idBox.value.length == 0) {
 		imgs.style.display = "none";
-		errorText.innerHTML = "";
+		document.getElementById("errorText").innerHTML = "";
 	} else {
 		imgs.style.display = "none";
-		errorText.innerHTML = "Invalid Video link/ID";
+		document.getElementById("errorText").innerHTML = "Invalid Video link/ID";
 	}
 	
 	
@@ -110,28 +112,6 @@ function displayAll() {
 	idP.className = "vis";
 }
 
-function darkTheme() {
-	createCookie("theme", "dark", 1000);
-	theme = "dark";
-	document.body.style.backgroundColor = "black";
-	document.body.style.color = "white";
-	themeBtn.className = partBB.className = dlBtn.className = 'buttonDark';
-	idBox.className = "inTextDark";
-	themeBtn.innerHTML = "Light Theme";
-	themecolor("#000000");
-}
-			
-function lightTheme() {
-	createCookie("theme", "light", 1000);
-	theme = "light";
-	document.body.style.backgroundColor = "white";
-	document.body.style.color = "black";
-	themeBtn.className = partBB.className = dlBtn.className = 'buttonLight';
-	idBox.className = "inTextLight";
-	themeBtn.innerHTML = "Dark Theme";
-	themecolor("#FFFFFF");
-}
-
 function updateLastImg() {
 	try {
 		var idCookie = readCookie("lastId");
@@ -168,31 +148,6 @@ function partialDisplay() {
 	partialT.style = "display: block; font-size: 73px;";
 	themeBtn.style = dlBtn.style = "display: none;"
 	partBB.style = "display: block;";
-}
-
-function getDocumentVars() {
-	directlink = document.getElementById("direct");
-	partialT = document.getElementById("partial");
-	partBB = document.getElementById("partialBack");
-	themeColorQuery = document.querySelector("meta[name=theme-color]");
-	dlBtn = document.getElementById("dlBtn");
-	idBox = document.getElementById('ID');
-	errorText = document.getElementById("errorText");
-	imgs = document.getElementById("imgs");
-	i720 = document.getElementById("720");
-	i480 = document.getElementById("480");
-	i360 = document.getElementById("360");
-	i180 = document.getElementById("180");
-	i90 = document.getElementById("90");
-	p720 = document.getElementById("p720");
-	p480 = document.getElementById("p480");
-	p360 = document.getElementById("p360");
-	p180 = document.getElementById("p180");
-	themeBtn = document.getElementById("themebtn");
-	idP = document.getElementById("idtext");
-	prevImgP = document.getElementById("previmgp");
-	prevImgA = document.getElementById("previmga");
-	prevImg = document.getElementById("previmg");
 }
 
 function onLoad() {

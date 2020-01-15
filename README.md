@@ -1,2 +1,2 @@
 # counter185.github.io
-Tool for downloading Youtube thumbnails.
+Personal page listing some of the stuff I've done.
