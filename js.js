@@ -4,6 +4,7 @@ function openAutoRelaunch(){
 	document.getElementById("youtubeThumbnailDownloader").style = "display: none";
 	document.getElementById("imageCorruptor").style = "display: none;";
 	document.getElementById("emojiStudio").style = "display: none;";
+	document.getElementById("PSPSaveManager").style = "display: none;";
 }
 
 function openYtThD(){
@@ -12,6 +13,7 @@ function openYtThD(){
 	document.getElementById("youtubeThumbnailDownloader").style = "display: block";
 	document.getElementById("imageCorruptor").style = "display: none;";
 	document.getElementById("emojiStudio").style = "display: none;";
+	document.getElementById("PSPSaveManager").style = "display: none;";
 }
 
 function openImageCorruptor(){
@@ -20,6 +22,7 @@ function openImageCorruptor(){
 	document.getElementById("youtubeThumbnailDownloader").style = "display: none";
 	document.getElementById("imageCorruptor").style = "display: block;";
 	document.getElementById("emojiStudio").style = "display: none;";
+	document.getElementById("PSPSaveManager").style = "display: none;";
 }
 
 function openEmojiStudio(){
@@ -28,6 +31,16 @@ function openEmojiStudio(){
 	document.getElementById("youtubeThumbnailDownloader").style = "display: none";
 	document.getElementById("imageCorruptor").style = "display: none;";
 	document.getElementById("emojiStudio").style = "display: block;";
+	document.getElementById("PSPSaveManager").style = "display: none;";
+}
+
+function openPSPSaveManager(){
+	document.getElementById("mainpage").style = "display: none";
+	document.getElementById("autoRelaunch").style = "display: none";
+	document.getElementById("youtubeThumbnailDownloader").style = "display: none";
+	document.getElementById("imageCorruptor").style = "display: none;";
+	document.getElementById("emojiStudio").style = "display: none;";
+	document.getElementById("PSPSaveManager").style = "display: block;";
 }
 
 function back(){
@@ -36,4 +49,5 @@ function back(){
 	document.getElementById("youtubeThumbnailDownloader").style = "display: none";
 	document.getElementById("imageCorruptor").style = "display: none;";
 	document.getElementById("emojiStudio").style = "display: none;";
+	document.getElementById("PSPSaveManager").style = "display: none;";
 }
