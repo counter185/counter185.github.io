@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(90deg, #05001d, #00051b);
+    
+}
+
+.maintext-1 {
+    background: linear-gradient(45deg, #00000060, #20202060);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.col-1 {
+    background: linear-gradient(90deg, #000000A0, #00000000);
+}
+
+.col-2 {
+    background: linear-gradient(90deg, #000000D0, #00000070);
+}
+
+.col-cpp {
+    background: linear-gradient(90deg, #ff57e0A0, #52004330);
+}
+.col-cs {
+    background: linear-gradient(90deg, #2bc231A0, #004f0330);
+}
+.col-c {
+    background: linear-gradient(90deg, #808080A0, #30303030);
+}
+.col-java {
+    background: linear-gradient(90deg, #e38d29A0, #361d0030);
+}
+.col-subname {
+    color: #FFFFFF80
+}
+
+.row a {
+    color: orangered;
+    font-style: italic;
+}
