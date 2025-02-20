@@ -32,7 +32,8 @@ body {
     background: linear-gradient(90deg, #e38d29A0, #361d0030);
 }
 .col-subname {
-    color: #FFFFFF80
+    color: #FFFFFF80;
+    font-size: 10pt;
 }
 
 .row a {
